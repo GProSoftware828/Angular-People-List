@@ -403,9 +403,15 @@
     </svg>
   </div>
 
-  <!-- Resources -->
-  <h2>Resources</h2>
-  <p>Here are some links to help you get started:</p>
+  <p>
+    Duration
+    <span [ngSwitch]="Duration">
+      <span *ngSwitchCase="1">One Day</span>
+      <span *ngSwitchCase="7">One Week</span>
+      <span *ngSwitchCase="30">One Month</span>
+      <span *ngSwitchDefault>Please correct the value</span>
+    </span>
+  </p>
 
   <div class="card-container">
     <p *ngIf="PeopleListSelected; then selectedPeople; else fullList"></p>
