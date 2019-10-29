@@ -10,4 +10,13 @@ export class AppComponent {
   Person1: string = 'User One';
   Person2: string = 'User Two';
   Duration: number = 7;
+  PeopleCategories: string[] = [
+    'Passerby',
+    'Family',
+    'Friend',
+    'Enemy',
+    'Competitor',
+    'Stranger',
+    'Teammate'
+  ];
 }

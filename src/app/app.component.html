@@ -413,6 +413,17 @@
     </span>
   </p>
 
+  <ul>
+    <ol *ngFor="let cats of PeopleCategories; let ind = index">
+      {{
+        ind + 1
+      }}
+      {{
+        cats
+      }}
+    </ol>
+  </ul>
+
   <div class="card-container">
     <p *ngIf="PeopleListSelected; then selectedPeople; else fullList"></p>
     <ng-template #selectedPeople>
