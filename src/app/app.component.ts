@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   PeopleListSelected: boolean = true;
+  Person1: string = 'User One';
+  Person2: string = 'User Two';
 }
