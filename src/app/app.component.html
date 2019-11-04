@@ -334,16 +334,29 @@
   <hr />
   <table>
     <tr>
+      <th>Selected</th>
       <th>Id</th>
       <th>Name</th>
       <th>Salary</th>
+      <th>Type of Dynamic</th>
     </tr>
     <tr *ngFor="let peep of PeopleList">
+      <td *ngIf="SelectedPeopleList == peep; else tmpEmptyRow">-></td>
       <td>{{ peep.Id }}</td>
       <td>{{ peep.Name }}</td>
       <td>{{ peep.Salary }}</td>
+      <td>
+        <span [ngSwitch]="peep.Type">
+          <span *ngSwitchCase="0">Temporary</span>
+          <span *ngSwitchCase="1">Permanent</span>
+          <span *ngSwitchCase="2">Contract</span>
+          <span *ngSwitchDefault>Invalid</span>
+        </span>
+      </td>
     </tr>
   </table>
+
+  <ng-template #tmpEmptyRow>&nbsp;</ng-template>
 
   <div class="card-container">
     <p *ngIf="PeopleListSelected; then selectedPeople; else fullList"></p>
