@@ -82,7 +82,7 @@
   }
 
   .card-container {
-    display: flex;
+    display: block;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 16px;
@@ -337,6 +337,10 @@
     <ng-template #fullList>
       <p>Entire list of people here. {{ Person1 }} {{ Person2 }}</p>
     </ng-template>
+    <br />
+    <p>
+      All people count: {{ PeopleCategories.length }} as of {{ CurrentTime }}
+    </p>
   </div>
 
   <!-- Next Steps -->

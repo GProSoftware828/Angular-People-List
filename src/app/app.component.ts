@@ -19,4 +19,5 @@ export class AppComponent {
     'Stranger',
     'Teammate'
   ];
+  CurrentTime: string = new Date().toLocaleTimeString();
 }
