@@ -326,9 +326,24 @@
       {{
         cats
       }}
-      <span>,</span>
+      <span *ngIf="ind != ind.length + 1">,</span>
     </ol>
   </ul>
+
+  <p>People List:</p>
+  <hr />
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Salary</th>
+    </tr>
+    <tr *ngFor="let peep of PeopleList">
+      <td>{{ peep.Id }}</td>
+      <td>{{ peep.Name }}</td>
+      <td>{{ peep.Salary }}</td>
+    </tr>
+  </table>
 
   <div class="card-container">
     <p *ngIf="PeopleListSelected; then selectedPeople; else fullList"></p>
