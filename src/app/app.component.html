@@ -428,6 +428,9 @@
   Hello from Child Component first form: {{ ffName }} {{ flName }}
   <br />
   <br />
+  <my-sizer [(size)]="fontSize"></my-sizer>
+  <br />
+  <div [style.font-size.px]="fontSize">Some Sample Text</div>
   <!-- Footer -->
   <footer>
     Love Angular?&nbsp;

@@ -65,6 +65,8 @@ export class AppComponent {
   ffName = 'Fran';
   flName = 'S';
 
+  fontSize = 10;
+
   // onMouse(evt: any) {
   //   if (evt.type == 'mouseover')
   //     evt.target.src = '../../images/Nosedives_copy.jpeg';

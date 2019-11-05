@@ -20,7 +20,7 @@ import { Person } from './Person';
         (ngModelChange)="changeFirstFormLast($event)"
       /><br />
     </form>
-
+    Hello {{ firstName1 + ' ' + lastName1 }}
     <form>
       First Name:
       <input
@@ -64,14 +64,14 @@ export class PersonComponent {
     this.lastNameChange.emit(ln);
   }
 
-  changeFirstFormFirst(fn: string) {
-    this.firstName1 = fn;
-    this.formFirstChangeFirst.emit(fn);
+  changeFirstFormFirst(fnf: string) {
+    this.firstName1 = fnf;
+    this.formFirstChangeFirst.emit(fnf);
   }
 
-  changeFirstFormLast(ln: string) {
-    this.lastName1 = ln;
-    this.formFirstChangeLast.emit(ln);
+  changeFirstFormLast(lnl: string) {
+    this.lastName1 = lnl;
+    this.formFirstChangeLast.emit(lnl);
   }
 
   person: Person;
