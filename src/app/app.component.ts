@@ -67,3 +67,21 @@ export class AppComponent {
   //     evt.target.src = '/Images/CremornePoint1_copy.JPG';
   // }
 }
+//destructuring:
+let input = [1, 2];
+// let first: number = input[0];
+// let second: number = input[1];
+let [first, second] = input;
+alert(first + ' ' + second);
+
+//spread:
+let [n1, ...rest] = [1, 2, 3, 4, 5];
+alert(n1);
+alert(rest);
+
+//let [m1] = [1,2,3,4], m1 only gets 1;
+//let [, , m3, m4] = [1,2,3,4,5,6], gets 3,4;
+let [totalDate, year, month, day] = /^(\d\d\d\d)-(\d\d)-(\d\d)$/.exec(
+  '2019-11-05'
+);
+alert(totalDate + ' ' + year + ' ' + month + ' ' + day);
