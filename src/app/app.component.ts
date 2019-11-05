@@ -82,6 +82,15 @@ export class AppComponent {
     return classes;
   }
 
+  setStyles() {
+    let styles = {
+      'font-size': this.canIncrease ? '24px' : '10px',
+      'background-color': this.canUpdate ? 'lightgreen' : 'white',
+      'font-style': this.canModify ? 'italic' : 'normal'
+    };
+    return styles;
+  }
+
   // onMouse(evt: any) {
   //   if (evt.type == 'mouseover')
   //     evt.target.src = '../../images/Nosedives_copy.jpeg';
