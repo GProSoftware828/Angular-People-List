@@ -134,6 +134,13 @@ export class AppComponent {
     return styles;
   }
 
+  alert = AlertSuccessComponent;
+
+  changeComponent() {
+    if (this.alert == AlertFailureComponent) this.alert = AlertSuccessComponent;
+    else this.alert = AlertFailureComponent;
+  }
+
   // onMouse(evt: any) {
   //   if (evt.type == 'mouseover')
   //     evt.target.src = '../../images/Nosedives_copy.jpeg';
@@ -159,3 +166,19 @@ let [totalDate, year, month, day] = /^(\d\d\d\d)-(\d\d)-(\d\d)$/.exec(
   '2019-11-05'
 );
 alert(totalDate + ' ' + year + ' ' + month + ' ' + day);
+
+@Component({
+  selector: 'alert-success',
+  template: `
+    <p>This is success</p>
+  `
+})
+export class AlertSuccessComponent {}
+
+@Component({
+  selector: 'alert-failure',
+  template: `
+    <p>This is failure</p>
+  `
+})
+export class AlertFailureComponent {}

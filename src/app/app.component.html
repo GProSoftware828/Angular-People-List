@@ -456,6 +456,12 @@
   <my-sizer [(size)]="fontSize"></my-sizer>
   <br />
   <div [style.font-size.px]="fontSize">Some Sample Text</div>
+
+  <hr />
+  Dynamic Component Example
+  <ng-container *ngComponentOutlet="alert"></ng-container>
+  <button (click)="changeComponent()">Change Alert</button>
+
   <!-- Footer -->
   <footer>
     Love Angular?&nbsp;
