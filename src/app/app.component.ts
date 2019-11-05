@@ -32,6 +32,7 @@ export class AppComponent {
   ];
   CurrentTime: string = new Date().toLocaleTimeString();
 
+  //data binding:
   eventType = '';
 
   onClick() {
@@ -47,9 +48,20 @@ export class AppComponent {
     evt.target.src = '/Images/CremornePoint1_copy.JPG';
     this.eventType = evt.type;
   }
+  keys = '';
+  value = '';
+  onKey(evt: any) {
+    this.keys += evt.key;
+    this.value = evt.target.value;
+  }
+
+  onKey1(value) {
+    //this.value = value;
+    alert(value);
+  }
 
   // onMouse(evt: any) {
-  //   if (evt.type = 'mouseover')
+  //   if (evt.type == 'mouseover')
   //     evt.target.src = '../../images/Nosedives_copy.jpeg';
   //   else
   //     evt.target.src = '/Images/CremornePoint1_copy.JPG';

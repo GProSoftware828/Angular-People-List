@@ -394,6 +394,26 @@
 
   Event Type:{{ eventType }}
 
+  <input type="text" (keyup)="onKey($event)" />
+  KeyPressed: {{ keys }}, Value: {{ value }}
+
+  <hr />
+  Template Reference
+  <hr />
+  <img
+    #img1
+    src="../../images/Nosedives_copy.jpeg"
+    (mouseover)="img1.src = '../../images/CremornePoint1_copy'"
+    (mouseout)="img1.src = '../../images/Nosedives_copy'"
+  />
+
+  <input
+    #txt1
+    (keyup.enter)="onKey1(txt1.value)"
+    (change)="onKey1(txt1.value)"
+  />
+  <p>{{ txt1.value }}</p>
+
   <!-- Footer -->
   <footer>
     Love Angular?&nbsp;
