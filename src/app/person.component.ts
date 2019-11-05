@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Person } from './Person';
 
 @Component({
@@ -22,9 +22,19 @@ import { Person } from './Person';
 
     <form>
       First Name:
-      <input type="text" name="firstName" [ngModel]="firstName" /><br />
+      <input
+        type="text"
+        name="firstName"
+        [ngModel]="firstName"
+        (ngModelChange)="changeFirstName($event)"
+      /><br />
       Last Name:
-      <input type="text" name="lastName" [ngModel]="lastName" /><br />
+      <input
+        type="text"
+        name="lastName"
+        [ngModel]="lastName"
+        (ngModelChange)="changeLastName($event)"
+      /><br />
     </form>
     Hello {{ firstName + ' ' + lastName }}
   `
@@ -32,6 +42,19 @@ import { Person } from './Person';
 export class PersonComponent {
   @Input() firstName: string;
   @Input() lastName: string;
+
+  @Output() firstNameChange = new EventEmitter<string>();
+  @Output() lastNameChange = new EventEmitter<string>();
+
+  changeFirstName(fn: string) {
+    this.firstName = fn;
+    this.firstNameChange.emit(fn);
+  }
+
+  changeLastName(ln: string) {
+    this.lastName = ln;
+    this.lastNameChange.emit(ln);
+  }
 
   person: Person;
   constructor() {

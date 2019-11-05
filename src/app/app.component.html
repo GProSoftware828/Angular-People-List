@@ -417,7 +417,11 @@
   <hr />
   Person Details
   <hr />
-  <person-component firstName="Steve" lastName="S"></person-component>
+  <person-component
+    [(firstName)]="fName"
+    [(lastName)]="lName"
+  ></person-component>
+  Hello from App Component: {{ fName }} {{ lName }}
   <br />
   <br />
   <!-- Footer -->

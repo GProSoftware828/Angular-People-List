@@ -60,6 +60,9 @@ export class AppComponent {
     alert(value);
   }
 
+  fName = 'Steve';
+  lName = 'S';
+
   // onMouse(evt: any) {
   //   if (evt.type == 'mouseover')
   //     evt.target.src = '../../images/Nosedives_copy.jpeg';
