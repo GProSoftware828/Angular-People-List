@@ -10,6 +10,7 @@ import {
 import { PersonComponent } from './person.component';
 import { SizerComponent } from './sizer.component';
 import { FormsModule } from '@angular/forms';
+import { EmployeeComponent } from './employee.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     PersonComponent,
     SizerComponent,
     AlertSuccessComponent,
-    AlertFailureComponent
+    AlertFailureComponent,
+    EmployeeComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

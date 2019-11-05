@@ -1,0 +1,41 @@
+<div class="container">
+  <h1>Employee Form</h1>
+  <h3>(Template Driven Form)</h3>
+  <form name="frmEmployee">
+    <div class="form-group">
+      <label for="Id">ID</label>
+      <input type="text" class="form-control" name="id" [(ngModel)]="emp.id" />
+    </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        [(ngModel)]="emp.name"
+      />
+    </div>
+    <div class="form-group">
+      <label for="Salary">Salary</label>
+      <input
+        type="text"
+        class="form-control"
+        name="salary"
+        [(ngModel)]="emp.salary"
+      />
+    </div>
+    <div class="form-group">
+      <label for="Department">Department</label>
+      <select id="Department" name="departments" [(ngModel)]="emp.departments">
+        <option
+          *ngFor="let dept of departments"
+          [(ngModel)]="dept"
+          name="dept"
+          >{{ dept }}</option
+        >
+      </select>
+    </div>
+  </form>
+  <hr />
+  Employee: {{ diagnostic }}
+</div>
