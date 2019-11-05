@@ -440,6 +440,12 @@
     [(firstName1)]="ffName"
     [(lastName1)]="flName"
   ></person-component>
+  <br />
+  <br />
+  <br />
+  <form name="form1">
+    <input type="text" name="t1" [(ngModel)]="name" />
+  </form>
   <div [style.font-size.px]="isSpecial ? 20 : 10">
     Hello from App Component: {{ fName }} {{ lName }}
   </div>

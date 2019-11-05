@@ -1,6 +1,16 @@
-import { Component } from '@angular/core';
 import { People, PeopleType } from './People';
-import { splitClasses } from '@angular/compiler';
+import {
+  Component,
+  Input,
+  OnInit,
+  OnChanges,
+  OnDestroy,
+  DoCheck,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit,
+  AfterViewChecked
+} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +18,39 @@ import { splitClasses } from '@angular/compiler';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  ngOnChanges() {
+    console.log('ngOnChanges Fired');
+  }
+
+  ngOnInit() {
+    console.log('ngOnInit Fired');
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy Fired');
+    alert('destroy');
+  }
+
+  ngDoCheck() {
+    console.log('ngDoCheck Fired');
+  }
+
+  ngAfterContentInit() {
+    console.log('ngAfterContentInit Fired');
+  }
+
+  ngAfterContentChecked() {
+    console.log('ngAfterContentChecked Fired');
+  }
+
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit Fired');
+  }
+
+  ngAfterViewChecked() {
+    console.log('ngAfterViewChecked Fired');
+  }
+
   PeopleListSelected: boolean = true;
   personName: string = 'User 1';
   isAvail = true;
