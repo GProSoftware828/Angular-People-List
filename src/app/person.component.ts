@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Person } from './Person';
 
 @Component({
@@ -19,11 +19,24 @@ import { Person } from './Person';
         (ngModelChange)="person.lastName = changeToUppercase($event)"
       /><br />
     </form>
-    Hello {{ person.firstName + ' ' + person.lastName }}
+
+    <form>
+      First Name:
+      <input type="text" name="firstName" [ngModel]="firstName" /><br />
+      Last Name:
+      <input type="text" name="lastName" [ngModel]="lastName" /><br />
+    </form>
+    Hello {{ firstName + ' ' + lastName }}
   `
 })
 export class PersonComponent {
-  person: Person = new Person('Steve', 'S');
+  @Input() firstName: string;
+  @Input() lastName: string;
+
+  person: Person;
+  constructor() {
+    this.person = new Person(this.firstName, this.lastName);
+  }
   changeToUppercase(value: string): string {
     return value.toUpperCase();
   }
