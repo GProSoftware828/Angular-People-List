@@ -62,6 +62,8 @@ export class AppComponent {
 
   fName = 'Steve';
   lName = 'S';
+  ffName = 'Fran';
+  flName = 'S';
 
   // onMouse(evt: any) {
   //   if (evt.type == 'mouseover')

@@ -8,15 +8,16 @@ import { Person } from './Person';
       First Name:
       <input
         type="text"
-        name="firstName"
-        [(ngModel)]="person.firstName"
+        name="firstName1"
+        [ngModel]="firstName1"
+        (ngModelChange)="changeFirstFormFirst($event)"
       /><br />
       Last Name:
       <input
         type="text"
-        name="lastName"
-        [ngModel]="person.lastName"
-        (ngModelChange)="person.lastName = changeToUppercase($event)"
+        name="lastName1"
+        [ngModel]="lastName1"
+        (ngModelChange)="changeFirstFormLast($event)"
       /><br />
     </form>
 
@@ -40,11 +41,18 @@ import { Person } from './Person';
   `
 })
 export class PersonComponent {
+  //get data from parent component in the child:
   @Input() firstName: string;
   @Input() lastName: string;
+  @Input() firstName1: string;
+  @Input() lastName1: string;
 
+  //pass data from child component to the parent:
   @Output() firstNameChange = new EventEmitter<string>();
   @Output() lastNameChange = new EventEmitter<string>();
+
+  @Output() formFirstChangeFirst = new EventEmitter<string>();
+  @Output() formFirstChangeLast = new EventEmitter<string>();
 
   changeFirstName(fn: string) {
     this.firstName = fn;
@@ -54,6 +62,16 @@ export class PersonComponent {
   changeLastName(ln: string) {
     this.lastName = ln;
     this.lastNameChange.emit(ln);
+  }
+
+  changeFirstFormFirst(fn: string) {
+    this.firstName1 = fn;
+    this.formFirstChangeFirst.emit(fn);
+  }
+
+  changeFirstFormLast(ln: string) {
+    this.lastName1 = ln;
+    this.formFirstChangeLast.emit(ln);
   }
 
   person: Person;
