@@ -66,6 +66,9 @@ export class AppComponent {
   flName = 'S';
 
   fontSize = 10;
+  isSpecial = true;
+
+  setClasses = 'fontBig backgroundColored';
 
   // onMouse(evt: any) {
   //   if (evt.type == 'mouseover')

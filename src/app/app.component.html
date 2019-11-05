@@ -266,6 +266,14 @@
     width: 1920px;
   }
 
+  .fontBig {
+    font-size: 22px;
+  }
+
+  .backgroundColored {
+    background-color: lightblue;
+  }
+
   /* Responsive Styles */
   @media screen and (max-width: 767px) {
     .card-container > *:not(.circle-link),
@@ -414,6 +422,8 @@
   />
   <p>{{ txt1.value }}</p>
 
+  <p [class]="setClasses">Some sample text with class binding</p>
+
   <hr />
   Person Details
   <hr />
@@ -423,7 +433,9 @@
     [(firstName1)]="ffName"
     [(lastName1)]="flName"
   ></person-component>
-  Hello from App Component: {{ fName }} {{ lName }}
+  <div [style.font-size.px]="isSpecial ? 20 : 10">
+    Hello from App Component: {{ fName }} {{ lName }}
+  </div>
   <br />
   Hello from Child Component first form: {{ ffName }} {{ flName }}
   <br />
@@ -435,7 +447,7 @@
   <footer>
     Love Angular?&nbsp;
     <a href="https://github.com/angular/angular" target="_blank" rel="noopener">
-      Give our repo a star.
+      <div>Give our repo a star.</div>
       <div class="github-star-badge">
         <svg
           class="material-icons"
