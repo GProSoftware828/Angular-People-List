@@ -274,6 +274,10 @@
     background-color: lightblue;
   }
 
+  .modified {
+    font-weight: bold;
+  }
+
   /* Responsive Styles */
   @media screen and (max-width: 767px) {
     .card-container > *:not(.circle-link),
@@ -325,6 +329,8 @@
       <span *ngSwitchDefault>Please correct the value</span>
     </span>
   </p>
+
+  <p [ngClass]="setClasses()">Example of ngClass classes</p>
 
   <ul>
     <ol *ngFor="let cats of PeopleCategories; let ind = index">

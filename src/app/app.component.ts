@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { People, PeopleType } from './People';
+import { splitClasses } from '@angular/compiler';
 
 @Component({
   selector: 'app-root',
@@ -68,7 +69,18 @@ export class AppComponent {
   fontSize = 10;
   isSpecial = true;
 
-  setClasses = 'fontBig backgroundColored';
+  canIncrease = true;
+  canUpdate = true;
+  canModify = true;
+
+  setClasses() {
+    let classes = {
+      fontBig: this.canIncrease,
+      backgroundColored: this.canUpdate,
+      modified: this.canModify
+    };
+    return classes;
+  }
 
   // onMouse(evt: any) {
   //   if (evt.type == 'mouseover')
