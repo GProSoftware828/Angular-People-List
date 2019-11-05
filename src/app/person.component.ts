@@ -8,16 +8,11 @@ import { Person } from './Person';
       First Name:
       <input
         type="text"
-        [value]="person.firstName"
-        (input)="person.firstName = $event.target.value"
+        name="firstName"
+        [(ngModel)]="person.firstName"
       /><br />
       Last Name:
-      <input
-        type="text"
-        [value]="person.lastName"
-        #lastName
-        (input)="person.lastName = lastName.value"
-      /><br />
+      <input type="text" name="lastName" [(ngModel)]="person.lastName" /><br />
     </form>
     Hello {{ person.firstName + ' ' + person.lastName }}
   `
