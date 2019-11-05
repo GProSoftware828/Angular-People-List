@@ -376,7 +376,23 @@
   <h2>Next Steps</h2>
   <p>What do you want to do next with your app?</p>
 
-  <input #selection />
+  <form>
+    <input type="text" [disabled]="!isAvail" #selection />
+    <input
+      type="button"
+      value="Enter"
+      value="{{ personName }}"
+      (click)="onClick()"
+    />
+  </form>
+  <hr />
+  <img
+    src="../../images/CremornePoint1_copy.JPG"
+    (mouseover)="onMouseOver($event)"
+    (mouseout)="onMouseOut($event)"
+  />
+
+  Event Type:{{ eventType }}
 
   <!-- Footer -->
   <footer>

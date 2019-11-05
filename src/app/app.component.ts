@@ -8,6 +8,8 @@ import { People, PeopleType } from './People';
 })
 export class AppComponent {
   PeopleListSelected: boolean = true;
+  personName: string = 'User 1';
+  isAvail = true;
   Person1: string = 'User One';
   PeopleList: People[] = [
     new People(1, 'Geo', 10450, PeopleType.Permanent),
@@ -29,4 +31,27 @@ export class AppComponent {
     'Teammate'
   ];
   CurrentTime: string = new Date().toLocaleTimeString();
+
+  eventType = '';
+
+  onClick() {
+    alert('Clicked');
+  }
+
+  onMouseOver(evt: any) {
+    evt.target.src = '../../images/Nosedives_copy.jpeg';
+    this.eventType = evt.type;
+  }
+
+  onMouseOut(evt: any) {
+    evt.target.src = '/Images/CremornePoint1_copy.JPG';
+    this.eventType = evt.type;
+  }
+
+  // onMouse(evt: any) {
+  //   if (evt.type = 'mouseover')
+  //     evt.target.src = '../../images/Nosedives_copy.jpeg';
+  //   else
+  //     evt.target.src = '/Images/CremornePoint1_copy.JPG';
+  // }
 }
