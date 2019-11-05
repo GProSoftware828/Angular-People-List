@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Person } from './Person';
+import { Employee } from './Employee';
 
 @Component({
   //moduleId: module.id,
@@ -8,7 +8,7 @@ import { Person } from './Person';
 })
 export class EmployeeComponent {
   departments = ['Sales', 'Development', 'Training', 'Accounts', 'HR'];
-  emp: Person = new Person(324, 'George', 76345, 'Training');
+  emp: Employee = new Employee(324, 'George', 76345, 'Training');
 
   get diagnostic() {
     return JSON.stringify(this.emp);
