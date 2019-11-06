@@ -14,6 +14,7 @@ import { EmployeeComponent } from './employee.component';
 import { FormComponent } from './person.form.component';
 import { AgePipe } from './custom.pipe';
 import { JoinPipe } from './join.pipe';
+import { ShowAlertDirective } from './showalert.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { JoinPipe } from './join.pipe';
     EmployeeComponent,
     FormComponent,
     AgePipe,
-    JoinPipe
+    JoinPipe,
+    ShowAlertDirective
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
