@@ -142,6 +142,13 @@ export class AppComponent {
     else this.alert = AlertFailureComponent;
   }
 
+  commencement: Date = new Date(2016, 7, 26);
+
+  arr = ['Person1', 'Person2'];
+  addItem(value: string) {
+    this.arr.push(value);
+  }
+
   // onMouse(evt: any) {
   //   if (evt.type == 'mouseover')
   //     evt.target.src = '../../images/Nosedives_copy.jpeg';

@@ -12,6 +12,8 @@ import { SizerComponent } from './sizer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmployeeComponent } from './employee.component';
 import { FormComponent } from './person.form.component';
+import { AgePipe } from './custom.pipe';
+import { JoinPipe } from './join.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { FormComponent } from './person.form.component';
     AlertSuccessComponent,
     AlertFailureComponent,
     EmployeeComponent,
-    FormComponent
+    FormComponent,
+    AgePipe,
+    JoinPipe
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

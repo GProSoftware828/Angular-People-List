@@ -332,7 +332,7 @@
 
   <p [ngClass]="setClasses()">Example of ngClass classes</p>
   <p [ngStyle]="setStyles()">Example of ngStyle inline style function.</p>
-
+  <p>Time since graduation: {{ commencement | age }}</p>
   <ul>
     <ol *ngFor="let cats of PeopleCategories; let ind = index">
       {{
@@ -359,7 +359,7 @@
       <td *ngIf="SelectedPeopleList == peep; else tmpEmptyRow">-></td>
       <td>{{ peep.Id }}</td>
       <td>{{ peep.Name }}</td>
-      <td>{{ peep.Salary }}</td>
+      <td>{{ peep.Salary | currency: 'USD':true }}</td>
       <td>
         <span [ngSwitch]="peep.Type">
           <span *ngSwitchCase="0">Temporary</span>
@@ -386,6 +386,12 @@
       All people count: {{ PeopleCategories.length }} as of {{ CurrentTime }}
     </p>
   </div>
+  <hr />
+  <input type="text" #txtName />
+  <button (click)="addItem(txtName.value)">Add Item</button>
+  <br />
+  Array {{ arr | join }}
+  <br />
 
   <!-- Next Steps -->
   <h2>Next Steps</h2>
