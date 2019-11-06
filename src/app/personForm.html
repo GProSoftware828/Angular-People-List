@@ -20,6 +20,7 @@
     <input
       type="text"
       class="form-control"
+      id="firstName"
       name="firstName"
       formControlName="firstName"
       required
@@ -38,6 +39,9 @@
         First Name cannot contain special characters
       </p>
     </div>
+    <ul>
+      <li *ngFor="let c of changes">{{ c }}</li>
+    </ul>
   </div>
   <div
     class="form-group"
