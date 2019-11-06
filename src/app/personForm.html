@@ -1,6 +1,17 @@
 <p>Reactive (Model-Driven) Forms:</p>
-<form [formGroup]="personForm" novalidate>
-  <div class="form-group">
+<div>{{ message }}</div>
+<form
+  [formGroup]="personForm"
+  novalidate
+  (ngSubmit)="onSubmit(personForm.value)"
+>
+  <div
+    class="form-group"
+    [ngClass]="{
+      'has-error': firstName.invalid && (firstName.dirty || firstName.touched),
+      'has-success': firstName.valid && (firstName.dirty || firstName.touched)
+    }"
+  >
     <label>First Name</label>
     <input
       type="text"
@@ -9,8 +20,23 @@
       formControlName="firstName"
       required
     />
+    <div
+      class="form-control-feedback"
+      *ngIf="firstName.errors && (firstName.dirty || firstName.touched)"
+    >
+      <p *ngIf="firstName.errors.required">First Name is required</p>
+      <p *ngIf="firstName.errors.pattern">
+        First Name cannot contain special characters
+      </p>
+    </div>
   </div>
-  <div class="form-group">
+  <div
+    class="form-group"
+    [ngClass]="{
+      'has-error': lastName.invalid && (lastName.dirty || lastName.touched),
+      'has-success': lastName.valid && (lastName.dirty || lastName.touched)
+    }"
+  >
     <label>Last Name</label>
     <input
       type="text"
@@ -19,6 +45,15 @@
       formControlName="lastName"
       required
     />
+    <div
+      class="form-control-feedback"
+      *ngIf="lastName.errors && (lastName.dirty || lastName.touched)"
+    >
+      <p *ngIf="lastName.errors.required">Last Name is required</p>
+      <p *ngIf="lastName.errors.pattern">
+        Last Name cannot contain special characters
+      </p>
+    </div>
   </div>
   <div class="form-group">
     <label>Gender</label>
@@ -47,6 +82,7 @@
       </select>
     </div>
   </div>
+  <input type="submit" value="submit" [disabled]="personForm.invalid" />
   Form Value:
   <pre>{{ personForm.value | json }}</pre>
   Form Status:

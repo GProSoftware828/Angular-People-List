@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { personForm } from './form-person';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'person-form',
@@ -15,6 +16,7 @@ export class FormComponent implements OnInit {
   degrees = ['BA', 'BS', 'AS', 'PHD', 'Certifications'];
   gender: FormControl;
   qualification: FormControl;
+  message = '';
 
   ngOnInit(): void {
     this.person = new personForm();
@@ -34,8 +36,14 @@ export class FormComponent implements OnInit {
   }
 
   createFormControls() {
-    this.firstName = new FormControl('Joe');
-    this.lastName = new FormControl('Blow');
+    this.firstName = new FormControl('Joe', [
+      Validators.required,
+      Validators.pattern('[a-zA-Z0-9 ]+')
+    ]);
+    this.lastName = new FormControl('Blow', [
+      Validators.required,
+      Validators.pattern('[a-zA-Z0-9 ]+')
+    ]);
     this.gender = new FormControl('male');
     this.qualification = new FormControl('Certifications');
   }
@@ -47,5 +55,13 @@ export class FormComponent implements OnInit {
       gender: this.gender,
       qualification: this.qualification
     });
+  }
+
+  onSubmit(form: any) {
+    if (this.personForm.valid) {
+      this.message = 'Form is valid';
+    } else {
+      this.message = 'Form is invalid';
+    }
   }
 }
