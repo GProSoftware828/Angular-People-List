@@ -8,8 +8,12 @@
   <div
     class="form-group"
     [ngClass]="{
-      'has-error': firstName.invalid && (firstName.dirty || firstName.touched),
-      'has-success': firstName.valid && (firstName.dirty || firstName.touched)
+      'has-error':
+        personForm.controls['firstName'].invalid &&
+        (['firstName'].dirty || ['firstName'].touched),
+      'has-success':
+        personForm.controls['firstName'].valid &&
+        (['firstName'].dirty || ['firstName'].touched)
     }"
   >
     <label>First Name</label>
@@ -22,10 +26,15 @@
     />
     <div
       class="form-control-feedback"
-      *ngIf="firstName.errors && (firstName.dirty || firstName.touched)"
+      *ngIf="
+        personForm.controls['firstName'].errors &&
+        (personForm.controls['firstName'].dirty || ['firstName'].touched)
+      "
     >
-      <p *ngIf="firstName.errors.required">First Name is required</p>
-      <p *ngIf="firstName.errors.pattern">
+      <p *ngIf="personForm.controls['firstName'].errors.required">
+        First Name is required
+      </p>
+      <p *ngIf="personForm.controls['firstName'].errors.pattern">
         First Name cannot contain special characters
       </p>
     </div>
@@ -33,8 +42,11 @@
   <div
     class="form-group"
     [ngClass]="{
-      'has-error': lastName.invalid && (lastName.dirty || lastName.touched),
-      'has-success': lastName.valid && (lastName.dirty || lastName.touched)
+      'has-error':
+        personForm.controls['lastName'].invalid &&
+        (['lastName'].dirty || ['lastName'].touched),
+      'has-success':
+        ['lastName'].valid && (['lastName'].dirty || ['lastName'].touched)
     }"
   >
     <label>Last Name</label>
@@ -47,10 +59,15 @@
     />
     <div
       class="form-control-feedback"
-      *ngIf="lastName.errors && (lastName.dirty || lastName.touched)"
+      *ngIf="
+        personForm.controls['lastName'].errors &&
+        (['lastName'].dirty || ['lastName'].touched)
+      "
     >
-      <p *ngIf="lastName.errors.required">Last Name is required</p>
-      <p *ngIf="lastName.errors.pattern">
+      <p *ngIf="personForm.controls['lastName'].errors.required">
+        Last Name is required
+      </p>
+      <p *ngIf="personForm.controls['lastName'].errors.pattern">
         Last Name cannot contain special characters
       </p>
     </div>

@@ -1,13 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder
+} from '@angular/forms';
 import { personForm } from './form-person';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'person-form',
   templateUrl: './personForm.html'
 })
 export class FormComponent implements OnInit {
+  constructor(private fb: FormBuilder) {}
+
   person: personForm;
   firstName: FormControl;
   lastName: FormControl;
@@ -24,8 +30,24 @@ export class FormComponent implements OnInit {
     this.person.lastName = 'Blow';
     this.person.gender = 'female';
     this.person.qualification = 'Certifications';
-    this.createFormControls();
-    this.createForm();
+    // this.createFormControls();
+    // this.createForm();
+
+    this.personForm = this.fb.group({
+      firstName: [
+        'Joe',
+        [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]
+      ],
+      lastName: [
+        'Bloe',
+        [Validators.required, Validators.pattern('[a-zA-Z0-9]+')]
+      ],
+      gender: ['male'],
+      qualification: ['Certifications']
+    });
+
+    // this.personForm.get('firstName'.valueChanges.debounceTime(500).distinctUntilChanged().
+    //   this.changes.push(change);
 
     this.personForm.setValue({
       firstName: this.person.firstName,
@@ -35,27 +57,27 @@ export class FormComponent implements OnInit {
     });
   }
 
-  createFormControls() {
-    this.firstName = new FormControl('Joe', [
-      Validators.required,
-      Validators.pattern('[a-zA-Z0-9 ]+')
-    ]);
-    this.lastName = new FormControl('Blow', [
-      Validators.required,
-      Validators.pattern('[a-zA-Z0-9 ]+')
-    ]);
-    this.gender = new FormControl('male');
-    this.qualification = new FormControl('Certifications');
-  }
+  // createFormControls() {
+  //   this.firstName = new FormControl('Joe', [
+  //     Validators.required,
+  //     Validators.pattern('[a-zA-Z0-9 ]+')
+  //   ]);
+  //   this.lastName = new FormControl('Blow', [
+  //     Validators.required,
+  //     Validators.pattern('[a-zA-Z0-9 ]+')
+  //   ]);
+  //   this.gender = new FormControl('male');
+  //   this.qualification = new FormControl('Certifications');
+  // }
 
-  createForm() {
-    this.personForm = new FormGroup({
-      firstName: this.firstName,
-      lastName: this.lastName,
-      gender: this.gender,
-      qualification: this.qualification
-    });
-  }
+  // createForm() {
+  //   this.personForm = new FormGroup({
+  //     firstName: this.firstName,
+  //     lastName: this.lastName,
+  //     gender: this.gender,
+  //     qualification: this.qualification
+  //   });
+  // }
 
   onSubmit(form: any) {
     if (this.personForm.valid) {
