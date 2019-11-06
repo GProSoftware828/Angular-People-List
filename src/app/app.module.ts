@@ -9,8 +9,9 @@ import {
 } from './app.component';
 import { PersonComponent } from './person.component';
 import { SizerComponent } from './sizer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmployeeComponent } from './employee.component';
+import { FormComponent } from './person.form.component';
 
 @NgModule({
   declarations: [
@@ -19,9 +20,10 @@ import { EmployeeComponent } from './employee.component';
     SizerComponent,
     AlertSuccessComponent,
     AlertFailureComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    FormComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [AlertSuccessComponent, AlertFailureComponent]

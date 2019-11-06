@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Employee Form</h1>
   <h3>(Template Driven Form)</h3>
-  <form name="frmEmployee">
+  <form name="frmEmployee" #empForm novalidate (ngSubmit)="onSubmit(empForm)">
     <div class="form-group">
       <label for="Id">ID</label>
       <input type="text" class="form-control" name="id" [(ngModel)]="emp.id" />
@@ -26,7 +26,7 @@
     </div>
     <div class="form-group">
       <label for="Department">Department</label>
-      <select id="Department" name="departments" [(ngModel)]="emp.departments">
+      <select name="departments" [(ngModel)]="emp.departments">
         <option
           *ngFor="let dept of departments"
           [(ngModel)]="dept"
@@ -35,6 +35,7 @@
         >
       </select>
     </div>
+    <input type="submit" name="submit" value="Submit" />
   </form>
   <hr />
   Employee: {{ diagnostic }}

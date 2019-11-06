@@ -1,4 +1,5 @@
 import { People, PeopleType } from './People';
+import { FormComponent } from './person.form.component';
 import {
   Component,
   Input,
