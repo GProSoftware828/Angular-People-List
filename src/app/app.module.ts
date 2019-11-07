@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Students, Address, Subjects, Addresses } from './student';
 
 import { AppRoutingModule } from './app-routing.module';
 import {
@@ -30,7 +31,7 @@ import { ShowAlertDirective } from './showalert.directive';
     ShowAlertDirective
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
-  providers: [],
+  providers: [Students, { provide: Address, useClass: Addresses }, Subjects],
   bootstrap: [AppComponent],
   entryComponents: [AlertSuccessComponent, AlertFailureComponent]
 })

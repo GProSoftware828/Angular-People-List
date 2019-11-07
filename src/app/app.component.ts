@@ -1,5 +1,7 @@
 import { People, PeopleType } from './People';
 import { FormComponent } from './person.form.component';
+//can have at module:
+import { Students, Address, Subjects, Addresses } from './student';
 import {
   Component,
   Input,
@@ -10,13 +12,17 @@ import {
   AfterContentInit,
   AfterContentChecked,
   AfterViewInit,
-  AfterViewChecked
+  AfterViewChecked,
+  ReflectiveInjector,
+  Inject
 } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  //can move these to module:
+  providers: [Students, { provide: Address, useClass: Addresses }, Subjects]
 })
 export class AppComponent {
   ngOnChanges() {
@@ -155,6 +161,17 @@ export class AppComponent {
   //   else
   //     evt.target.src = '/Images/CremornePoint1_copy.JPG';
   // }
+
+  stud: Students;
+  constructor(stud: Students) {
+    //don't need when use providers: [Student]
+    //var injector = ReflectiveInjector.resolveAndCreate([
+    //  Students,
+    //  Address,
+    //  Subjects
+    //]);
+    this.stud = stud; //injector.get(Students);
+  }
 }
 //destructuring:
 let input = [1, 2];
