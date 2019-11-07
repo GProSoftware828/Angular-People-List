@@ -1,8 +1,14 @@
 import { Worker } from './worker';
-import { Injectable } from '@angular/core';
+import { LoggerService } from './logger.service';
+import { Injectable, Component } from '@angular/core';
 
+@Component({
+  providers: [LoggerService]
+})
 export class WorkerService {
+  //constructor(private logger: LoggerService) {}
   getWorkers(): Worker[] {
+    //this.logger.log('Fetching workers...');
     let workers: Worker[] = [
       new Worker(1, 'WorkerJoe', 45600, new Date(2016, 8, 4)),
       new Worker(2, 'WorkerShmoe', 45600, new Date(2016, 8, 4)),
